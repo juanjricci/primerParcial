@@ -8,8 +8,9 @@ class BookService:
         bookKey = -1
         for key in Repository.booksList:
             bookKey = key
-        bookKey = bookKey + 1
-        Repository.booksList[bookKey] = book.__dict__
+        newKey = int(bookKey) + 1
+        Repository.booksList[newKey] = book.__dict__
+        return newKey
 
     def update_book(self, key, book):
         if key in Repository.booksList:
@@ -29,4 +30,4 @@ class BookService:
             pass
         else:
             raise ValueError('No existe legajo')
-        pass
+        Repository.booksList[book_id]['_memberLegajo'] = member_legajo

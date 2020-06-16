@@ -8,8 +8,9 @@ class MemberService:
         memberKey = -1
         for key in Repository.membersList:
             memberKey = key
-        memberKey = memberKey + 1
-        Repository.membersList[memberKey] = member.__dict__
+        newKey = memberKey + 1
+        Repository.membersList[newKey] = member.__dict__
+        return newKey
 
     def update_member(self, key, member):
         if key in Repository.membersList.keys():
